@@ -1,0 +1,86 @@
+npm init -y
+
+in out package.json file we can install various packages 
+
+json is JavaScript Object Notation , use to store and exchange data between server and web applicaton 
+
+express@4.18.2 is the best and most used version now , even we have 5th version , but this is op 
+
+in package.json file define "type" as "module"
+
+for running the file in backend write node server.js
+
+if we want to run npm run dev , we need to modify the json file inside scripts make "dev" : "node server.js"
+
+npm install nodemon -D (can do live change to server api, without restarting the server again and again) , then in package.json , instead of node change to nodemon , "dev": nodemon server.js
+
+
+
+...........THEORY FOR BACKEND.......................................
+
+
+1. Why we need a API with between client and server ? Why cant client directly access to the database via server ?
+
+Ans : because some of the users could be malitious , and cant delte the data or use is in a wrong way and cause trouble to big companies and other users too, thats why api is required , so that client cant do such things..
+
+
+2. Types of API :
+REST API (APPLICATION PROGRAMMING INTERFACE)
+: it uses http methods :(Hyper Text Transfer Protocol) It is a standard application layer protocol used for transferring data over the World Wide Web
+GET - Example : Get some posts on instagram ..
+POST - Example : Create a Post on Instagram ..
+PUT - Example  : Update a post 
+DELETE - Example : Delete the post 
+
+
+3. Status Codes :
+100: Informational 
+200 : Success {200: OK, 201:Created Successfully}
+404 : Error  , NOT FOUND 
+400: Bad Request 
+401: Unauthorized
+403: You are not allowed to access this 
+429 : Too many requests
+300 : Redirection , server is telling the client , the thing  you are looking for is somewhere else..
+301: When you change site location like http://pranjal.com to https://pranjal.com
+500 : Internal Server Error
+503 : Service Unavailable
+
+4. Examples of HTTP methods 
+
+app.get("/api/notes", (req,res)=>{
+  res.status(201).send("You have too many notes here ");
+})
+app.post("/api/creation", (req,res)=>{
+  res.send("Creation has Happened");
+})
+
+app.put("/api/notes/new", (req,res)=>{
+  res.send("The item inside the notes has been updated");
+})
+
+app.delete("/api/notes/end", (req,res)=>{
+  res.send("The notes have been deleted successfully");
+})
+app.listen(5001, ()=>{
+  console.log("The server has been started successfully..");
+});
+
+
+5. Inside package.json we made a "dev" under Scripts and its nodemon server.js, we used "dev" for developing part , we will add another script for production  
+
+for developing-- "dev":"nodemon server.js"
+for production-- "start":"node server.js"
+
+in production , we cant use nodemon 
+
+
+
+6. What is a endpoint ?
+
+Ans. endpoint is a combination of URL+HTTP methods to interact with specific resources 
+
+7. Under the api , we can send json message too like .status().json({message:"message"})
+
+8. use /:id this to get call from a specific id , example http://localhost:5001/api/notes/21
+here 21 is the :id .
