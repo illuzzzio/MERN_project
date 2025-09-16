@@ -84,3 +84,9 @@ Ans. endpoint is a combination of URL+HTTP methods to interact with specific res
 
 8. use /:id this to get call from a specific id , example http://localhost:5001/api/notes/21
 here 21 is the :id .
+
+9. For github push 
+git status 
+git add . 
+git commit -m "your message here"
+git push 
